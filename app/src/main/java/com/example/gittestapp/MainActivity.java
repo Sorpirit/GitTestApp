@@ -36,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.btRed:
-                        textView.setText("Red text.");
+                        textView.setText(R.string.red_txt);
                         textView.setTextColor(Color.RED);
                         break;
                     case R.id.btGreen:
-                        textView.setText("Green text.");
+                        textView.setText(R.string.green_txt);
                         textView.setTextColor(Color.GREEN);
                         break;
                     case  R.id.btBlue:
-                        textView.setText("Blue text.");
+                        textView.setText(R.string.blue_txt);
                         textView.setTextColor(Color.BLUE);
                         break;
                 }
