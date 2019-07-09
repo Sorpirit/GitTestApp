@@ -10,10 +10,13 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
+    private TextView clicks;
     private Button red;
     private Button green;
     private Button blue;
     private Button black;
+
+    private int clicksCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView(){
         textView = findViewById(R.id.textView);
+        clicks = findViewById(R.id.clikcksC);
         red = findViewById(R.id.btRed);
         green = findViewById(R.id.btGreen);
         blue = findViewById(R.id.btBlue);
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                         textView.setTextColor(Color.BLACK);
                         break;
                 }
+                clicksCounter++;
+                clicks.setText("Total clicks:" + clicksCounter);
             }
         };
 
