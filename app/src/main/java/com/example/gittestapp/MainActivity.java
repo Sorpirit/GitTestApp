@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private Button red;
     private Button green;
     private Button blue;
+    private Button black;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         red = findViewById(R.id.btRed);
         green = findViewById(R.id.btGreen);
         blue = findViewById(R.id.btBlue);
+        black = findViewById(R.id.btBlack);
     }
 
     private void setOnClickListener(){
@@ -47,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText(R.string.blue_txt);
                         textView.setTextColor(Color.BLUE);
                         break;
+                    case R.id.btBlack:
+                        textView.setText(R.string.black_txt);
+                        textView.setTextColor(Color.BLACK);
+                        break;
                 }
             }
         };
@@ -54,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
         red.setOnClickListener(clickListener);
         green.setOnClickListener(clickListener);
         blue.setOnClickListener(clickListener);
+        black.setOnClickListener(clickListener);
     }
 }
