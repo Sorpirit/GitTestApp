@@ -14,11 +14,14 @@ public class MainActivity extends AppCompatActivity {
     private Button green;
     private Button blue;
     private Button black;
+    private Stats stats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        stats = new Stats();
 
         initView();
         setOnClickListener();
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
                         textView.setTextColor(Color.BLACK);
                         break;
                 }
+                stats.btn_click(v.getId());
+
             }
         };
 
