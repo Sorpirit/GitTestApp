@@ -1,5 +1,6 @@
 package com.example.gittestapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button green;
     private Button blue;
     private Button black;
+    private Button goToNextScreen;
     private Stats stats;
 
     @Override
@@ -25,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
         stats = new Stats();
 
         initView();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         setOnClickListener();
+
     }
 
     private void initView(){
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         green = findViewById(R.id.btGreen);
         blue = findViewById(R.id.btBlue);
         black = findViewById(R.id.btBlack);
+        goToNextScreen = findViewById(R.id.bt_chengAct);
     }
 
     private void setOnClickListener(){
@@ -45,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btRed:
                         textView.setText(R.string.red_txt);
                         textView.setTextColor(Color.RED);
+                        Intent intent = new Intent(MainActivity.this,DataIn.class);
+                        startActivity(intent);
                         break;
                     case R.id.btGreen:
                         textView.setText(R.string.green_txt);
@@ -58,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         textView.setText(R.string.black_txt);
                         textView.setTextColor(Color.BLACK);
                         break;
+                    case R.id.bt_chengAct:
+                        Intent intent2 = new Intent("com.main2Activity");
+                        startActivity(intent2);
+                        break;
                 }
                 stats.btn_click(v.getId());
 
@@ -69,5 +85,16 @@ public class MainActivity extends AppCompatActivity {
         green.setOnClickListener(clickListener);
         blue.setOnClickListener(clickListener);
         black.setOnClickListener(clickListener);
+        goToNextScreen.setOnClickListener(clickListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        red.setOnClickListener(null);
+        green.setOnClickListener(null);
+        blue.setOnClickListener(null);
+        black.setOnClickListener(null);
+        goToNextScreen.setOnClickListener(null);
     }
 }
